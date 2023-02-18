@@ -11,13 +11,14 @@ const url = "https://free-food-menus-api-production.up.railway.app/burgers";
     let myData= data
     // to apend data to html document = function
     getMenu(myData)
+    takeOrder(myData)
   })
   .catch((error) => console.log(error));
 
     //choose random number between 60 foods
   const randomFood = () => {
-    let item = Math.floor(Math.random()*60 );
-    console.log(item);
+    return (Math.floor(Math.random()*60 ));
+    // console.log(item);
   }
 
   function getMenu(data) {
@@ -50,20 +51,29 @@ const url = "https://free-food-menus-api-production.up.railway.app/burgers";
     }
   
   }
-  let cart = {};
-  const order = new Promise((resolve,reject)=>{
-    setTimeout(function takeOrder(data){  
-      item1 =  data[randomFood()];
-      item2 =  data[randomFood()];
-      item3 =  data[randomFood()];
-  cart = {item1,item2,item3}
+
+  let cart = [];
+
+function takeOrder(data){  
+      console.log(randomFood());
+     let item1 = data[randomFood()];
+      let item2 =  data[randomFood()];
+      let item3 =  data[randomFood()];
+      console.log(data[item2]);
+ cart = [item1,item2,item3]
   console.log(cart);
     }
-      ,2500)
-  });
 
 
+function orderPrep(){
+  let paySts = {success: "payment success", faild : "payment failed"}
 
+}
+
+
+function  thankyouFnc(){
+
+}
 
 
 
